@@ -1,6 +1,6 @@
 from rest_framework import generics
 from rest_framework.response import Response
-
+from rest_framework.permissions import IsAuthenticated
 from .models import UstaModel, OrderModel
 from .serializer import OrderSerializers, UstaSerializers
 from rest_framework.views import APIView
@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 class OrderAllView(generics.ListAPIView):
     queryset = OrderModel.objects.all()
     serializer_class = OrderSerializers
+    permission_classes = [IsAuthenticated]
 
 
 class UstaAllView(generics.ListAPIView):

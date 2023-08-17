@@ -19,7 +19,7 @@ class OrderModel(models.Model):
     client_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=13)
     buzilish_sababi = models.TextField(default='')
-    added_at = models.DateTimeField(datetime.now)
+    added_at = models.DateTimeField(default=datetime.now)
     updated_at = models.DateTimeField(auto_now=True)
     usta_id = models.ForeignKey(to=UstaModel, on_delete=models.CASCADE)
 
